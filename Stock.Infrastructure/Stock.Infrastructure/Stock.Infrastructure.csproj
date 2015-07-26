@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C67E051-1579-47B5-BA6B-980A1B2ADC8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Stock.Infrastructure</RootNamespace>
+    <AssemblyName>Stock.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;FRAMEWORK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;FRAMEWORK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HtmlAgilityPack 1.4.0\crc32.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\EncodingFoundException.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlAttribute.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlAttributeCollection.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlCmdLine.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlCommentNode.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlConsoleListener.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlDocument.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlElementFlag.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlEntity.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlNameTable.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlNode.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlNodeCollection.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlNodeNavigator.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlNodeType.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlParseError.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlParseErrorCode.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlTextNode.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlWeb.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\HtmlWebException.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\IOLibrary.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocument.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocumentCodeFragment.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocumentFragment.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocumentFragmentList.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocumentFragmentType.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\MixedCodeDocumentTextFragment.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\NameValuePair.cs" />
+    <Compile Include="HtmlAgilityPack 1.4.0\NameValuePairList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\HttpBasicAuthenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\IAuthenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\NtlmAuthenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth1Authenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth2Authenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\Extensions\CollectionExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\Extensions\OAuthExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\Extensions\StringExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\Extensions\TimeExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\HttpPostParameter.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\HttpPostParameterType.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthParameterHandling.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthSignatureMethod.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthSignatureTreatment.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthTools.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthType.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthWebQueryInfo.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\OAuthWorkflow.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\WebPair.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\WebPairCollection.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\WebParameter.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\OAuth\WebParameterCollection.cs" />
+    <Compile Include="RestSharp 104.4.0\Authenticators\SimpleAuthenticator.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\Crc32.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\FlushType.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\GZipStream.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\Inflate.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\InfTree.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\ZLib.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\ZLibCodec.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\ZLibConstants.cs" />
+    <Compile Include="RestSharp 104.4.0\Compression\ZLib\ZLibStream.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\DeserializeAsAttribute.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\DotNetXmlDeserializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\IDeserializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\JsonDeserializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\XmlAttributeDeserializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Deserializers\XmlDeserializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Enum.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\MiscExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\MonoHttp\Helpers.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\MonoHttp\HtmlEncoder.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\MonoHttp\HttpUtility.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\ReflectionExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\ResponseExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\StringExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\Extensions\XmlExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\FileParameter.cs" />
+    <Compile Include="RestSharp 104.4.0\Http.Async.cs" />
+    <Compile Include="RestSharp 104.4.0\Http.cs" />
+    <Compile Include="RestSharp 104.4.0\Http.Sync.cs" />
+    <Compile Include="RestSharp 104.4.0\HttpCookie.cs" />
+    <Compile Include="RestSharp 104.4.0\HttpFile.cs" />
+    <Compile Include="RestSharp 104.4.0\HttpHeader.cs" />
+    <Compile Include="RestSharp 104.4.0\HttpParameter.cs" />
+    <Compile Include="RestSharp 104.4.0\HttpResponse.cs" />
+    <Compile Include="RestSharp 104.4.0\IHttp.cs" />
+    <Compile Include="RestSharp 104.4.0\IHttpFactory.cs" />
+    <Compile Include="RestSharp 104.4.0\IHttpResponse.cs" />
+    <Compile Include="RestSharp 104.4.0\IRestClient.cs" />
+    <Compile Include="RestSharp 104.4.0\IRestRequest.cs" />
+    <Compile Include="RestSharp 104.4.0\IRestResponse.cs" />
+    <Compile Include="RestSharp 104.4.0\Parameter.cs" />
+    <Compile Include="RestSharp 104.4.0\RestClient.Async.cs" />
+    <Compile Include="RestSharp 104.4.0\RestClient.cs" />
+    <Compile Include="RestSharp 104.4.0\RestClient.Sync.cs" />
+    <Compile Include="RestSharp 104.4.0\RestClientExtensions.cs" />
+    <Compile Include="RestSharp 104.4.0\RestRequest.cs" />
+    <Compile Include="RestSharp 104.4.0\RestRequestAsyncHandle.cs" />
+    <Compile Include="RestSharp 104.4.0\RestResponse.cs" />
+    <Compile Include="RestSharp 104.4.0\RestResponseCookie.cs" />
+    <Compile Include="RestSharp 104.4.0\Serializers\DotNetXmlSerializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Serializers\ISerializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Serializers\JsonSerializer.cs" />
+    <Compile Include="RestSharp 104.4.0\Serializers\SerializeAsAttribute.cs" />
+    <Compile Include="RestSharp 104.4.0\Serializers\XmlSerializer.cs" />
+    <Compile Include="RestSharp 104.4.0\SimpleJson.cs" />
+    <Compile Include="RestSharp 104.4.0\Validation\Require.cs" />
+    <Compile Include="RestSharp 104.4.0\Validation\Validate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

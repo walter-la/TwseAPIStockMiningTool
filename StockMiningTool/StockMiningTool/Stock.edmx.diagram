@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e152f3cd57a24f34b04abd4d1be501c3" Name="圖表1">
+        <EntityTypeShape EntityType="StockModel.BestTradeList" Width="1.5" PointX="8" PointY="2" />
+        <EntityTypeShape EntityType="StockModel.DailyQuotes" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="StockModel.StockList" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="StockModel.TradeList" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="StockModel.VolumebyPrices" Width="1.5" PointX="3" PointY="2" />
+        <AssociationConnector Association="StockModel.FK_BestTradeList_TradeList" />
+        <AssociationConnector Association="StockModel.FK_VolumebyPrices_DailyQuotes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

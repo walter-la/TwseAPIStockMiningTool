@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="StockName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsClose" Type="bit" Nullable="false" />
+          <Property Name="ModTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DailyQuotes">
+          <Key>
+            <PropertyRef Name="DailyQuotesID" />
+          </Key>
+          <Property Name="DailyQuotesID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="DailyDate" Type="date" Nullable="false" />
+          <Property Name="HighestPrice" Type="real" Nullable="false" />
+          <Property Name="LowestPrice" Type="real" Nullable="false" />
+          <Property Name="OpeningPrice" Type="real" Nullable="false" />
+          <Property Name="PrevClosePrice" Type="real" Nullable="false" />
+          <Property Name="AccTradeShares" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LatestTradePrice" Type="real" Nullable="false" />
+          <Property Name="TradeVolume" Type="int" Nullable="false" />
+          <Property Name="Change" Type="real" Nullable="false" />
+          <Property Name="ChangeExtent" Type="real" Nullable="false" />
+          <Property Name="AveragePrice" Type="real" Nullable="false" />
+          <Property Name="TradeValue" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="BuyVolume" Type="int" Nullable="false" />
+          <Property Name="SellVolume" Type="int" Nullable="false" />
+          <Property Name="BuyVolumeRatio" Type="real" Nullable="false" />
+          <Property Name="SellVolumeRatio" Type="real" Nullable="false" />
+          <Property Name="TradeCount" Type="int" Nullable="false" />
+          <Property Name="StockStatus" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ForeignDailyTradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="TradeTime" Type="datetime" Nullable="false" />
+          <Property Name="ForeignBuyShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ForeignSellShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SecuritiesBuyShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SecuritiesSellShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DealersBuyShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DealersSellShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DifferenceShares" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PChomeTradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="HighestPrice" Type="real" Nullable="false" />
+          <Property Name="LowestPrice" Type="real" Nullable="false" />
+          <Property Name="TradeTime" Type="datetime" Nullable="false" />
+          <Property Name="StockStatus" Type="tinyint" Nullable="false" />
+          <Property Name="TradeStatus" Type="tinyint" Nullable="false" />
+          <Property Name="AccTradeVolume" Type="int" Nullable="false" />
+          <Property Name="LatestTradePrice" Type="real" Nullable="false" />
+          <Property Name="TradeVolume" Type="int" Nullable="false" />
+          <Property Name="BestBidPrice" Type="real" Nullable="false" />
+          <Property Name="BestAskPrice" Type="real" Nullable="false" />
+          <Property Name="Change" Type="real" Nullable="false" />
+          <Property Name="ChangeExtent" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="HighestPrice" Type="real" Nullable="false" />
+          <Property Name="LowestPrice" Type="real" Nullable="false" />
+          <Property Name="TradeTime" Type="datetime" Nullable="false" />
+          <Property Name="StockStatus" Type="tinyint" Nullable="false" />
+          <Property Name="TradeStatus" Type="tinyint" Nullable="false" />
+          <Property Name="AccTradeVolume" Type="int" Nullable="false" />
+          <Property Name="LatestTradePrice" Type="real" Nullable="false" />
+          <Property Name="TradeVolume" Type="int" Nullable="false" />
+          <Property Name="BestBidPrice" Type="real" Nullable="false" />
+          <Property Name="BestBidVolume" Type="int" Nullable="false" />
+          <Property Name="BestAskPrice" Type="real" Nullable="false" />
+          <Property Name="BestAskVolume" Type="int" Nullable="false" />
+          <Property Name="Change" Type="real" Nullable="false" />
+          <Property Name="ChangeExtent" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnOrders">
+          <Key>
+            <PropertyRef Name="BestTradeID" />
+          </Key>
+          <Property Name="BestTradeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TradeID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="BestBidPrice" Type="real" Nullable="false" />
+          <Property Name="BestBidVolume" Type="int" Nullable="false" />
+          <Property Name="BestAskPrice" Type="real" Nullable="false" />
+          <Property Name="BestAskVolume" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VolumebyPrices">
+          <Key>
+            <PropertyRef Name="VolumeByPriceID" />
+          </Key>
+          <Property Name="VolumeByPriceID" Type="int" Nullable="false" />
+          <Property Name="DailyQuotesID" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="real" Nullable="false" />
+          <Property Name="Volume" Type="int" Nullable="false" />
+          <Property Name="Percentage" Type="real" Nullable="false" />
+          <Property Name="BidOrAsk" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BestTradeList_TradeList">
+          <End Role="TradeDetails" Type="Self.TradeDetails" Multiplicity="1" />
+          <End Role="UnOrders" Type="Self.UnOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TradeDetails">
+              <PropertyRef Name="TradeID" />
+            </Principal>
+            <Dependent Role="UnOrders">
+              <PropertyRef Name="TradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VolumebyPrices_DailyQuotes">
+          <End Role="DailyQuotes" Type="Self.DailyQuotes" Multiplicity="1" />
+          <End Role="VolumebyPrices" Type="Self.VolumebyPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyQuotes">
+              <PropertyRef Name="DailyQuotesID" />
+            </Principal>
+            <Dependent Role="VolumebyPrices">
+              <PropertyRef Name="DailyQuotesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StockModelStoreContainer">
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyQuotes" EntityType="Self.DailyQuotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForeignDailyTradeDetails" EntityType="Self.ForeignDailyTradeDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PChomeTradeDetails" EntityType="Self.PChomeTradeDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TradeDetails" EntityType="Self.TradeDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnOrders" EntityType="Self.UnOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VolumebyPrices" EntityType="Self.VolumebyPrices" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BestTradeList_TradeList" Association="Self.FK_BestTradeList_TradeList">
+            <End Role="TradeDetails" EntitySet="TradeDetails" />
+            <End Role="UnOrders" EntitySet="UnOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VolumebyPrices_DailyQuotes" Association="Self.FK_VolumebyPrices_DailyQuotes">
+            <End Role="DailyQuotes" EntitySet="DailyQuotes" />
+            <End Role="VolumebyPrices" EntitySet="VolumebyPrices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="StockModel.Companies" />
+          <EntitySet Name="DailyQuotes" EntityType="StockModel.DailyQuotes" />
+          <EntitySet Name="ForeignDailyTradeDetails" EntityType="StockModel.ForeignDailyTradeDetails" />
+          <EntitySet Name="PChomeTradeDetails" EntityType="StockModel.PChomeTradeDetails" />
+          <EntitySet Name="TradeDetails" EntityType="StockModel.TradeDetails" />
+          <EntitySet Name="UnOrders" EntityType="StockModel.UnOrders" />
+          <EntitySet Name="VolumebyPrices" EntityType="StockModel.VolumebyPrices" />
+          <AssociationSet Name="FK_VolumebyPrices_DailyQuotes" Association="StockModel.FK_VolumebyPrices_DailyQuotes">
+            <End Role="DailyQuotes" EntitySet="DailyQuotes" />
+            <End Role="VolumebyPrices" EntitySet="VolumebyPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BestTradeList_TradeList" Association="StockModel.FK_BestTradeList_TradeList">
+            <End Role="TradeDetails" EntitySet="TradeDetails" />
+            <End Role="UnOrders" EntitySet="UnOrders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="StockName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsClose" Type="Boolean" Nullable="false" />
+          <Property Name="ModTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="DailyQuotes">
+          <Key>
+            <PropertyRef Name="DailyQuotesID" />
+          </Key>
+          <Property Name="DailyQuotesID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="DailyDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HighestPrice" Type="Single" Nullable="false" />
+          <Property Name="LowestPrice" Type="Single" Nullable="false" />
+          <Property Name="OpeningPrice" Type="Single" Nullable="false" />
+          <Property Name="PrevClosePrice" Type="Single" Nullable="false" />
+          <Property Name="AccTradeShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="LatestTradePrice" Type="Single" Nullable="false" />
+          <Property Name="TradeVolume" Type="Int32" Nullable="false" />
+          <Property Name="Change" Type="Single" Nullable="false" />
+          <Property Name="ChangeExtent" Type="Single" Nullable="false" />
+          <Property Name="AveragePrice" Type="Single" Nullable="false" />
+          <Property Name="TradeValue" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="BuyVolume" Type="Int32" Nullable="false" />
+          <Property Name="SellVolume" Type="Int32" Nullable="false" />
+          <Property Name="BuyVolumeRatio" Type="Single" Nullable="false" />
+          <Property Name="SellVolumeRatio" Type="Single" Nullable="false" />
+          <Property Name="TradeCount" Type="Int32" Nullable="false" />
+          <Property Name="StockStatus" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="VolumebyPrices" Relationship="StockModel.FK_VolumebyPrices_DailyQuotes" FromRole="DailyQuotes" ToRole="VolumebyPrices" />
+        </EntityType>
+        <EntityType Name="ForeignDailyTradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="TradeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ForeignBuyShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ForeignSellShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="SecuritiesBuyShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="SecuritiesSellShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DealersBuyShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DealersSellShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DifferenceShares" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PChomeTradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="HighestPrice" Type="Single" Nullable="false" />
+          <Property Name="LowestPrice" Type="Single" Nullable="false" />
+          <Property Name="TradeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StockStatus" Type="Byte" Nullable="false" />
+          <Property Name="TradeStatus" Type="Byte" Nullable="false" />
+          <Property Name="AccTradeVolume" Type="Int32" Nullable="false" />
+          <Property Name="LatestTradePrice" Type="Single" Nullable="false" />
+          <Property Name="TradeVolume" Type="Int32" Nullable="false" />
+          <Property Name="BestBidPrice" Type="Single" Nullable="false" />
+          <Property Name="BestAskPrice" Type="Single" Nullable="false" />
+          <Property Name="Change" Type="Single" Nullable="false" />
+          <Property Name="ChangeExtent" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TradeDetails">
+          <Key>
+            <PropertyRef Name="TradeID" />
+          </Key>
+          <Property Name="TradeID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="StockID" Type="Int32" Nullable="false" />
+          <Property Name="HighestPrice" Type="Single" Nullable="false" />
+          <Property Name="LowestPrice" Type="Single" Nullable="false" />
+          <Property Name="TradeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StockStatus" Type="Byte" Nullable="false" />
+          <Property Name="TradeStatus" Type="Byte" Nullable="false" />
+          <Property Name="AccTradeVolume" Type="Int32" Nullable="false" />
+          <Property Name="LatestTradePrice" Type="Single" Nullable="false" />
+          <Property Name="TradeVolume" Type="Int32" Nullable="false" />
+          <Property Name="BestBidPrice" Type="Single" Nullable="false" />
+          <Property Name="BestBidVolume" Type="Int32" Nullable="false" />
+          <Property Name="BestAskPrice" Type="Single" Nullable="false" />
+          <Property Name="BestAskVolume" Type="Int32" Nullable="false" />
+          <Property Name="Change" Type="Single" Nullable="false" />
+          <Property Name="ChangeExtent" Type="Single" Nullable="false" />
+          <NavigationProperty Name="UnOrders" Relationship="StockModel.FK_BestTradeList_TradeList" FromRole="TradeDetails" ToRole="UnOrders" />
+        </EntityType>
+        <EntityType Name="UnOrders">
+          <Key>
+            <PropertyRef Name="BestTradeID" />
+          </Key>
+          <Property Name="BestTradeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TradeID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="BestBidPrice" Type="Single" Nullable="false" />
+          <Property Name="BestBidVolume" Type="Int32" Nullable="false" />
+          <Property Name="BestAskPrice" Type="Single" Nullable="false" />
+          <Property Name="BestAskVolume" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TradeDetails" Relationship="StockModel.FK_BestTradeList_TradeList" FromRole="UnOrders" ToRole="TradeDetails" />
+        </EntityType>
+        <EntityType Name="VolumebyPrices">
+          <Key>
+            <PropertyRef Name="VolumeByPriceID" />
+          </Key>
+          <Property Name="VolumeByPriceID" Type="Int32" Nullable="false" />
+          <Property Name="DailyQuotesID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Percentage" Type="Single" Nullable="false" />
+          <Property Name="BidOrAsk" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="DailyQuotes" Relationship="StockModel.FK_VolumebyPrices_DailyQuotes" FromRole="VolumebyPrices" ToRole="DailyQuotes" />
+        </EntityType>
+        <Association Name="FK_VolumebyPrices_DailyQuotes">
+          <End Type="StockModel.DailyQuotes" Role="DailyQuotes" Multiplicity="1" />
+          <End Type="StockModel.VolumebyPrices" Role="VolumebyPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyQuotes">
+              <PropertyRef Name="DailyQuotesID" />
+            </Principal>
+            <Dependent Role="VolumebyPrices">
+              <PropertyRef Name="DailyQuotesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BestTradeList_TradeList">
+          <End Type="StockModel.TradeDetails" Role="TradeDetails" Multiplicity="1" />
+          <End Type="StockModel.UnOrders" Role="UnOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TradeDetails">
+              <PropertyRef Name="TradeID" />
+            </Principal>
+            <Dependent Role="UnOrders">
+              <PropertyRef Name="TradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="StockModel.Companies">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="ModTime" ColumnName="ModTime" />
+                <ScalarProperty Name="IsClose" ColumnName="IsClose" />
+                <ScalarProperty Name="StockName" ColumnName="StockName" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyQuotes">
+            <EntityTypeMapping TypeName="StockModel.DailyQuotes">
+              <MappingFragment StoreEntitySet="DailyQuotes">
+                <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+                <ScalarProperty Name="TradeCount" ColumnName="TradeCount" />
+                <ScalarProperty Name="SellVolumeRatio" ColumnName="SellVolumeRatio" />
+                <ScalarProperty Name="BuyVolumeRatio" ColumnName="BuyVolumeRatio" />
+                <ScalarProperty Name="SellVolume" ColumnName="SellVolume" />
+                <ScalarProperty Name="BuyVolume" ColumnName="BuyVolume" />
+                <ScalarProperty Name="TradeValue" ColumnName="TradeValue" />
+                <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+                <ScalarProperty Name="ChangeExtent" ColumnName="ChangeExtent" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="TradeVolume" ColumnName="TradeVolume" />
+                <ScalarProperty Name="LatestTradePrice" ColumnName="LatestTradePrice" />
+                <ScalarProperty Name="AccTradeShares" ColumnName="AccTradeShares" />
+                <ScalarProperty Name="PrevClosePrice" ColumnName="PrevClosePrice" />
+                <ScalarProperty Name="OpeningPrice" ColumnName="OpeningPrice" />
+                <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+                <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+                <ScalarProperty Name="DailyDate" ColumnName="DailyDate" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="DailyQuotesID" ColumnName="DailyQuotesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForeignDailyTradeDetails">
+            <EntityTypeMapping TypeName="StockModel.ForeignDailyTradeDetails">
+              <MappingFragment StoreEntitySet="ForeignDailyTradeDetails">
+                <ScalarProperty Name="DifferenceShares" ColumnName="DifferenceShares" />
+                <ScalarProperty Name="DealersSellShares" ColumnName="DealersSellShares" />
+                <ScalarProperty Name="DealersBuyShares" ColumnName="DealersBuyShares" />
+                <ScalarProperty Name="SecuritiesSellShares" ColumnName="SecuritiesSellShares" />
+                <ScalarProperty Name="SecuritiesBuyShares" ColumnName="SecuritiesBuyShares" />
+                <ScalarProperty Name="ForeignSellShares" ColumnName="ForeignSellShares" />
+                <ScalarProperty Name="ForeignBuyShares" ColumnName="ForeignBuyShares" />
+                <ScalarProperty Name="TradeTime" ColumnName="TradeTime" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PChomeTradeDetails">
+            <EntityTypeMapping TypeName="StockModel.PChomeTradeDetails">
+              <MappingFragment StoreEntitySet="PChomeTradeDetails">
+                <ScalarProperty Name="ChangeExtent" ColumnName="ChangeExtent" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="BestAskPrice" ColumnName="BestAskPrice" />
+                <ScalarProperty Name="BestBidPrice" ColumnName="BestBidPrice" />
+                <ScalarProperty Name="TradeVolume" ColumnName="TradeVolume" />
+                <ScalarProperty Name="LatestTradePrice" ColumnName="LatestTradePrice" />
+                <ScalarProperty Name="AccTradeVolume" ColumnName="AccTradeVolume" />
+                <ScalarProperty Name="TradeStatus" ColumnName="TradeStatus" />
+                <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+                <ScalarProperty Name="TradeTime" ColumnName="TradeTime" />
+                <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+                <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TradeDetails">
+            <EntityTypeMapping TypeName="StockModel.TradeDetails">
+              <MappingFragment StoreEntitySet="TradeDetails">
+                <ScalarProperty Name="ChangeExtent" ColumnName="ChangeExtent" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="BestAskVolume" ColumnName="BestAskVolume" />
+                <ScalarProperty Name="BestAskPrice" ColumnName="BestAskPrice" />
+                <ScalarProperty Name="BestBidVolume" ColumnName="BestBidVolume" />
+                <ScalarProperty Name="BestBidPrice" ColumnName="BestBidPrice" />
+                <ScalarProperty Name="TradeVolume" ColumnName="TradeVolume" />
+                <ScalarProperty Name="LatestTradePrice" ColumnName="LatestTradePrice" />
+                <ScalarProperty Name="AccTradeVolume" ColumnName="AccTradeVolume" />
+                <ScalarProperty Name="TradeStatus" ColumnName="TradeStatus" />
+                <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+                <ScalarProperty Name="TradeTime" ColumnName="TradeTime" />
+                <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+                <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnOrders">
+            <EntityTypeMapping TypeName="StockModel.UnOrders">
+              <MappingFragment StoreEntitySet="UnOrders">
+                <ScalarProperty Name="BestAskVolume" ColumnName="BestAskVolume" />
+                <ScalarProperty Name="BestAskPrice" ColumnName="BestAskPrice" />
+                <ScalarProperty Name="BestBidVolume" ColumnName="BestBidVolume" />
+                <ScalarProperty Name="BestBidPrice" ColumnName="BestBidPrice" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+                <ScalarProperty Name="BestTradeID" ColumnName="BestTradeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VolumebyPrices">
+            <EntityTypeMapping TypeName="StockModel.VolumebyPrices">
+              <MappingFragment StoreEntitySet="VolumebyPrices">
+                <ScalarProperty Name="BidOrAsk" ColumnName="BidOrAsk" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DailyQuotesID" ColumnName="DailyQuotesID" />
+                <ScalarProperty Name="VolumeByPriceID" ColumnName="VolumeByPriceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
